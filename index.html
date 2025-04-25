@@ -41,5 +41,21 @@
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       });
     </script>
+    <script>
+  let lastInnerHeight = window.innerHeight;
+  window.addEventListener("resize", function() {
+    // Si el nuevo alto es mucho más chico, es por el teclado => ignorarlo
+    if (window.innerHeight < lastInnerHeight * 0.9) {
+      // NO hacer nada
+      console.log("Teclado abierto: no ajustar canvas");
+      document.querySelector('canvas').style.height = lastInnerHeight + "px";
+    } else {
+      // Solo actualizar el alto real si el resize es legítimo
+      lastInnerHeight = window.innerHeight;
+      console.log("Resize normal: actualizando tamaño");
+      document.querySelector('canvas').style.height = "100%";
+    }
+  });
+</script>
   </body>
 </html>
