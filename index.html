@@ -10,6 +10,11 @@
     <script src="Build/newPlazaVisitor.loader.js"></script>
     <script>
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        //Adding
+        window.addEventListener('resize', function (e) {
+            e.preventDefault();
+        }, { passive: false });
+        
         // Mobile device style: fill the whole browser client area with the game canvas:
         var meta = document.createElement('meta');
         meta.name = 'viewport';
