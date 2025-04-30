@@ -9,6 +9,11 @@
     <link rel="manifest" href="manifest.webmanifest">
   </head>
   <body>
+    <script>
+  // Elimina la base de datos de cache de Unity (IndexedDB)
+  indexedDB.deleteDatabase('UnityCache');
+  console.log("UnityCache deleted from IndexedDB");
+</script>
     <div id="unity-container">
       <canvas id="unity-canvas" width=540 height=960 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
